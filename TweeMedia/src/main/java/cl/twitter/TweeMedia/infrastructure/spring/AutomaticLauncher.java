@@ -1,7 +1,7 @@
-package cl.twitter.TweeMedia.launcher;
+package cl.twitter.tweemedia.infrastructure.spring;
 
-import cl.twitter.TweeMedia.utils.PropDefinitions;
-import cl.twitter.TweeMedia.management.TwitterController;
+import cl.twitter.tweemedia.utils.PropDefinitions;
+import cl.twitter.tweemedia.management.TwitterController;
 import java.util.Scanner;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package cl.twitter.TweeMedia.management;
+package cl.twitter.tweemedia.management;
 
 import org.springframework.stereotype.Service;
 import twitter4j.Paging;

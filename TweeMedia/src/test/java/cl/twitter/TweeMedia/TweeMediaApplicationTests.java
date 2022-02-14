@@ -1,4 +1,4 @@
-package cl.twitter.TweeMedia;
+package cl.twitter.tweemedia;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package cl.twitter.TweeMedia.management;
+package cl.twitter.tweemedia.management;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;

@@ -1,6 +1,6 @@
-package cl.twitter.TweeMedia.management;
+package cl.twitter.tweemedia.management;
 
-import cl.twitter.TweeMedia.utils.TweeMediaUtils;
+import cl.twitter.tweemedia.utils.TweeMediaUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,7 +55,7 @@ public class TwitterControllerImpl implements TwitterController {
     }
 
     private void saveVideos(Integer videos, String path, List<MediaEntity> lVideos) {
-        if ("1".equals(videos)) {
+        if (videos == 1) {
             System.out.println("******************");
             System.out.println("Downloading Videos");
             for (MediaEntity v : lVideos) {
@@ -63,20 +63,20 @@ public class TwitterControllerImpl implements TwitterController {
                 Variant betterQuality = videoVariants[0];
                 String urlVideo = betterQuality.getUrl().substring(0, betterQuality.getUrl().indexOf("?"));
                 System.out.println("URL [" + urlVideo + "]");
-                TweeMediaUtils.urlToFile(urlVideo, path);
+                TweeMediaUtils.writeMediaIntoFile(urlVideo, path);
             }
             System.out.println("******************");
         }
     }
 
     private void savePhotos(Integer photos, String path, List<MediaEntity> lPhotos) {
-        if ("1".equals(photos)) {
+        if (photos == 1) {
             System.out.println("******************");
             System.out.println("Downloading Photos");
             for (MediaEntity f : lPhotos) {
                 String urlFoto = f.getMediaURL();
                 System.out.println("URL [" + urlFoto + "]");
-                TweeMediaUtils.urlToFile(urlFoto, path);
+                TweeMediaUtils.writeMediaIntoFile(urlFoto, path);
             }
             System.out.println("******************");
         }

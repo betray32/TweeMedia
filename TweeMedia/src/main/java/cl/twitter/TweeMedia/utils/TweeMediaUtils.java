@@ -1,4 +1,4 @@
-package cl.twitter.TweeMedia.utils;
+package cl.twitter.tweemedia.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import org.apache.commons.io.FileUtils;
 
 public class TweeMediaUtils {
 
-    public static int urlToFile(String url, String path) {
+    public static int writeMediaIntoFile(String url, String path) {
         try {
             String fileName = url.substring(url.lastIndexOf("/") + 1);
 
