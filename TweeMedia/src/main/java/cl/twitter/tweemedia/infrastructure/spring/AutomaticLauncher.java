@@ -11,17 +11,11 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @AllArgsConstructor
-public class AutomaticLauncher implements CommandLineRunner {
+public class AutomaticLauncher {
 
     private TwitterController twitter;
     private PropDefinitions prop;
     private ConfigurableApplicationContext context;
-
-    @Override
-    public void run(String... args) throws Exception {
-        initProgram();
-        System.exit(SpringApplication.exit(context));
-    }
 
     private void initProgram() {
         Scanner scanner = new Scanner(System.in);
