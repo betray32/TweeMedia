@@ -1,33 +1,34 @@
-package cl.twitter.tweemedia.management;
+package cl.twitter.tweemedia.application.service;
 
 import cl.twitter.tweemedia.utils.TweeMediaUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import twitter4j.EntitySupport;
 import twitter4j.MediaEntity;
 import twitter4j.MediaEntity.Variant;
+import twitter4j.Paging;
 import twitter4j.ResponseList;
 import twitter4j.Status;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
 
-@Controller
-@AllArgsConstructor
-public class TwitterControllerImpl implements TwitterController {
+@Service
+@RequiredArgsConstructor
+public class TwitterManagementService {
 
     private static final String PHOTO = "photo";
     private static final String VIDEO = "video";
 
-    private TwitterFunctions twitter;
-
-    @Override
     public boolean saveMedia(Integer photos, Integer videos, String profile, String path, Integer registryCount) {
+        
         ResponseList<Status> mediaList = null;
 
         try {
-            mediaList = twitter.getMediaFromTimeline(profile, registryCount);
+            mediaList = getMediaFromTimeline(profile, registryCount);
         } catch (TwitterException e) {
             System.err.println("Program has failed when retrieve info from twitter, Detail > " + e.getMessage());
         }
@@ -93,4 +94,12 @@ public class TwitterControllerImpl implements TwitterController {
             }
         });
     }
+
+    private ResponseList<Status> getMediaFromTimeline(String userId, int registryCount) throws TwitterException {
+        Twitter twitter = TwitterFactory.getSingleton();
+        Paging p = new Paging();
+        p.setCount(registryCount);
+        return twitter.getUserTimeline(userId, p);
+    }
+
 }
